@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+ <div id="ProductsContainer">
+   <h1><%= @product.title %></h1>
+   <%= image_tag @product.img_url, :class => 'welcomIm'  %>
+   <h2><%= @product.description %></h1>
+   
+    <div class="producthols">
+       <p>Price <%= number_to_currency(@product.price, :unit => "€") %>
+       <br>
+        Category: <%= @product.category %>
+        <br>
+        Brand: <%= @product.brand %></p>
+       
+       <p>
+         <%= link_to 'Back',  products_path, :class => "button", :role => "button" %>
+         <%= link_to 'Edit',  edit_product_path(@product), :class => "button", :role => "button" %>
+         
+       </p>
+        
+      </div>
+   
+   
+   </div>
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>

@@ -1,0 +1,41 @@
+<h1>Thank you!</h1>
+<br>
+<table id="customers">
+    <tr>
+        
+        <% @orders.id do |order| %>
+            <td>Order reference for the order you just placed <%= order.id %></td>
+        <% end %>
+    </tr>
+</table>    
+
+    
+<table id="customers">
+     <% @total = 0 %>
+    <% @orderitems.each do |id,quantity| %>
+      <tr>
+        <% product = Orderitem.find_by_id(id) %>
+       
+        <td><%= product.title %></td>
+        <td><%= product.quantity %></td>
+       <td><%=number_to_currency(product.price, :unit => "€")%></td> 
+       <td><%= number_to_currency(product.quantity * product.price, :unit => "€") %></td>
+       </tr>
+       
+       <% timx = (product.quantity * product.price)%>
+     
+     
+      <% @total += timx %>
+      
+      </tr>
+    <% end %>
+    
+    
+    <tr>
+        
+       <td>Order Total: &euro; <%= @total %></td>
+       
+    </tr>
+    </table>
+    <%=render 'orders/payButton'%>
+
