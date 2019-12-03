@@ -9,8 +9,9 @@ class ProductsController < ApplicationController
   
   def search
      st = "%#{params[:search]}%"
-     @products = Product.where("title like ?", st)
-     @search_term = "%#{params[:search]}%"
+     @products = Product.where("title like ? or brand like ? or description like ?", st, st, st)
+    # @products += Product.where("brand like ?", st)
+     @search_term = "#{params[:search]}"
   end
 
 

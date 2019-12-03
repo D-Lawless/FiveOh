@@ -1,4 +1,6 @@
-<%= form_tag("/search", method: 'post') do %>
-      <%= text_field_tag(:search, params[:search]) %>
-      <%= submit_tag("Search", name: nil) %>
-<% end %>
+<div class="w3-right">
+      <%= form_tag("/search", method: 'post') do %>
+            <%= text_field_tag(:search, params[:search]) %>
+            <%= submit_tag("Search", name: nil) %>
+      <% end %>
+</div>

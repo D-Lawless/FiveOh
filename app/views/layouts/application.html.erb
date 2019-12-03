@@ -12,7 +12,7 @@
   <style>
   body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   </style>
-  
+
   <body class="w3-light-grey w3-content" style="max-width:1600px">
 
   <%=render 'layouts/sidebar'%>
@@ -33,14 +33,28 @@
     <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
     <%=render 'layouts/navigation'%>
   </header>
-
-  <%= yield %>
-  <%=render 'layouts/footer'%>
-<!-- End page content -->
-</div>
+  
+    <%= yield %>
+    <%=render 'layouts/footer'%>
+    
+    <!-- End page content -->
+  </div>
 
 <script>
-// Script to open and close sidebar
+// Accordion 
+function myAccFunc() {
+  var x = document.getElementById("demoAcc");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+// Click on the "Jeans" link on page load to open the accordion for demo purposes
+document.getElementById("myBtn").click();
+
+
 function w3_open() {
     document.getElementById("mySidebar").style.display = "block";
     document.getElementById("myOverlay").style.display = "block";

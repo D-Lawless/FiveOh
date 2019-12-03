@@ -11,6 +11,13 @@ class UserController < ApplicationController
         session[:cart] = nil
         flash[:notice] = "You have been successfully logged out!!"
         redirect_to :controller => :products
-    end    
+    end
+    
+    private
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def user_params
+      params.require(:user).permit(:fName)
+    end
 
 end

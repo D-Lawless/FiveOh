@@ -1,9 +1,9 @@
-email: <%= current_user.email %>
-<br>
-name: <%= current_user.first_name %>
-<br>
-adress:
-<br>
-sex:
-<br>
-<%= link_to 'Edit Profile', edit_user_registration_path, :class =>"button2" %>
+<div class="w3-white w3-text-grey w3-card-4 w3-center" style="min-height:400px;>
+    <div class="w3-container">
+        <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>Name: <%= current_user.fName %> <%= current_user.sName %></p>
+        <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>email: <%= current_user.email %></p>
+        <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>Contact: 1224435534</p>
+        <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Address: London, UK</p>
+        <p><%= link_to 'Edit Profile', edit_user_registration_path, :class =>"button2" %></p>
+    </div>
+</div>

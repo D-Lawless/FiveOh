@@ -1,41 +1,36 @@
 <p id="notice"><%= notice %></p>
-<div id="ProductsContainer">
-<h1>Products</h1>
-
-<% if @products.length == 0  %>
-<br />
-<h2>There are currently no products in this category</h2>
-<% end %>
-
-    <% @products.each do |product| %>
-      <div class="producthols">
-        <h1><%= product.title %></h1>
-        <%= link_to (image_tag product.img_url, :class=>"productholsIm"), product %>
-        <div style="height:120px;">
-          <p><%= truncate(product.description, :length => 80) %></p>
-        </div>
-
-       </p>
-       <p><%= product.price %>
-        <br>
-        <%= product.category %>
-        <br>
-        <%= product.brand %>
-        </p>
-        <p>        
-         
-          <a href="/cart/<%= product.id %>" class="button">Add to Cart</a>  
-          <%= link_to 'Show', product, :class =>"button", :role=>"button" %>
-        
-
-        <% if session[:login] == 1 %> 
-        <%= link_to 'Edit', edit_product_path(product), :class =>"button", :role=>"button" %>
-        <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"button",           :role=>"button" %>
-        
-        <% end %>
-        </p>
-     </div>
+    <% if @products.length == 0  %>
+      <br />
+      <h2>There are currently no products in this category</h2>
     <% end %>
-  <br>
-</div>
+    <h1 class="w3-center"><%= @category%></h1>
+    
+    
+    <% @products.each do |product| %>
+        <div class="w3-quarter w3-border w3-container w3-white">
+
+        <h1><%= product.title %></h1>
+        <%= link_to (image_tag product.img_url, :class => "w3-hover-opacity", :style => "width:100%"), product %>
+          <p><%= truncate(product.description, :length => 80) %></p>
+          <p>Price <%= number_to_currency(product.price, :unit => "€") %>
+          <br>
+          Category: <%= product.category %>
+          <br>
+          Brand: <%= product.brand %></p>
+          <p>
+          <%= link_to 'More Info',  product, :class => "w3-half w3-button w3-black w3-round-large", :role => "button" %>
+
+          <a href="/cart/<%= product.id %>" class ="w3-half w3-button w3-black w3-round-large">Add To Cart</a>
+
+          <% if session[:login] == 1 %> 
+            <%= link_to 'Edit',  edit_product_path(product), :class => "w3-button w3-black w3-round-large", :role => "button" %>
+            <%= link_to 'Destroy',  product, method: :delete, data: { confirm: 'Are you sure?' }, :class => "w3-button w3-black w3-round-large", :role => "button" %>
+
+          <% end %>
+          </p>
+        </div>
+  <% end %>
+
+
+
 

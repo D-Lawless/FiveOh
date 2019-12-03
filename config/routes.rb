@@ -34,7 +34,7 @@ Rails.application.routes.draw do
   
   get '/cart/:id', to: 'cart#add'
   
-  get '/remove/:id' => 'cart#remove'
+  get 'cart/remove/:id' => 'cart#remove'
   
   get '/decrease/:id' => 'cart#decrease'
   

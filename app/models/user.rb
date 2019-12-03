@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :remember_me)
+    params.require(:user).permit(:email, :password, :password_confirmation, :remember_me, :fName)
   end
   
   

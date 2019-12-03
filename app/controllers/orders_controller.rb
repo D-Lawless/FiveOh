@@ -1,10 +1,11 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /orders
   # GET /orders.json
   def index
     @orders = Order.all
+  
   end
 
   # GET /orders/1
@@ -12,6 +13,11 @@ class OrdersController < ApplicationController
   def show
     @orderitems = Orderitem.all
     @orderitems = Orderitem.where(order_id: params[:id])
+    @order_total = 0
+    
+    @orderitems.each do |item|
+      @order_total += item.price
+    end
     @user = User.find(current_user.id)
   end
 

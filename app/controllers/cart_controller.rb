@@ -68,12 +68,14 @@ class CartController < ApplicationController
   #Delete Item method
 
   def remove
+    
     id = params[:id]
     cart = session[:cart]
     cart.delete id
+    
     redirect_to :action => :index
   end
-  
+
   def decrease
     id = params[:id]
     cart = session[:cart]

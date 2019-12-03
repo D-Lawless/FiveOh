@@ -1,5 +1,12 @@
-<div class="footer">
-      <h2>Footer</h2>
-      <%= link_to 'New Product', new_product_path, :class =>"button2", :role=>"button"  %>
-      <%= link_to 'New Category', new_category_path, :class =>"button2", :role=>"button"  %>
- </div>
+<!-- Footer -->
+<footer class=" w3-black" style="height:300px;">
+      
+      <h1>This is the footer!</h1>
+      <div class="w3-container" style="margin:auto;">
+            <% if session[:login] == 1 %>
+                  <%= link_to 'New Product', new_product_path, :class =>"w3-half w3-button w3-white w3-round-large", :role=>"button"  %>
+                  <%= link_to 'New Category', new_category_path, :class =>"w3-half w3-button w3-white w3-round-large", :role=>"button"  %> 
+            <%end%>
+      </div>
+</footer>
+
