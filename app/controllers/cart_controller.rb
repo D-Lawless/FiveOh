@@ -1,6 +1,7 @@
 class CartController < ApplicationController
   before_action :authenticate_user!
   
+
   def createOrder
     # Step 1: Get the current user
     @user = User.find(current_user.id)
@@ -19,8 +20,10 @@ class CartController < ApplicationController
     @orders = Order.last
     @orderitems = Orderitem.where(order_id: Order.last)
     
-    session[:cart] = nil
+    #session[:cart] = nil
   end
+  
+
   
   def add
     # get the Id of the product

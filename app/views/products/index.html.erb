@@ -1,26 +1,33 @@
 <p id="notice"><%= notice %></p>
+<div>
+  
   <% @products.each do |product| %>
-      <div class="w3-third w3-border w3-container w3-white w3-card w3-center">
+  
+      <div class="w3-third w3-border w3-container w3-white w3-card w3-center w3-margin-bottom">
         <h1><%= product.title %></h1>
-        <%= link_to (image_tag product.img_url, :class => "w3-hover-opacity", :style => "width:100%"), product %>
+        <%= link_to (image_tag product.img_url, :class => "w3-hover-opacity", :style => "width:100%;min-height:400px;"), product %>
+          
           <div style="height:60px;">
             <p><%= truncate(product.description, :length => 80) %></p>
           </div>
+          
           <p>Price <%= number_to_currency(product.price, :unit => "€") %>
           <br>
-          Category: <%= product.category %>
-          <br>
           Brand: <%= product.brand %></p>
-          <p>
-          <%= link_to 'More Info',  product, :class => "w3-half w3-button w3-black w3-round-large", :role => "button" %>
-
-          <a href="/cart/<%= product.id %>" class ="w3-half w3-button w3-black w3-round-large">Add To Cart</a>
-
+          
+          <div>
+          
+          <%= link_to 'More Info',  product, :class => "w3-half fiveOhButton", :role => "button" %>
+          <a href="/cart/<%= product.id %>" class ="w3-half fiveOhButton">Add To Cart</a>
           <% if session[:login] == 1 %> 
-            <%= link_to 'Edit',  edit_product_path(product), :class => "w3-button w3-black w3-round-large", :role => "button" %>
-            <%= link_to 'Destroy',  product, method: :delete, data: { confirm: 'Are you sure?' }, :class => "w3-button w3-black w3-round-large", :role => "button" %>
-
+            <%= link_to 'Edit',  edit_product_path(product), :class => "w3-half fiveOhButton", :role => "button" %>
+            <%= link_to 'Destroy',  product, method: :delete, data: { confirm: 'Are you sure?' }, :class => "w3-half fiveOhButton", :role => "button" %>
           <% end %>
-          </p>
-        </div>
+          
+          </div>
+          
+      </div>
+      
   <% end %>
+  
+</div>

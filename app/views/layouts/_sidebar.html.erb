@@ -1,5 +1,5 @@
 <!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar">
+<nav class="w3-sidebar w3-collapse w3-light-grey  w3-animate-left w3-card" style="z-index:3;width:300px; position: relative;" id="mySidebar">
   <br>
   
   
@@ -13,7 +13,7 @@
   
   
   
-  <div class="w3-container w3-cell-middle	w3-center" style="margin:auto;"> 
+  <div class="w3-container w3-cell-middle	w3-center" style="margin-bottom:120px;"> 
   <% if user_signed_in? %>
     <h3> Hi <%= current_user.fName %></h3>
     <%= link_to 'Profile', '/profile/', :class =>"w3-button w3-black w3-round-large"  %>
@@ -30,16 +30,16 @@
   
   
   <div class=" w3-large w3-text-grey" style="font-weight:bold; margin-bottom:50%;">
-    <a href="/category/Shoes" class="w3-bar-item w3-button w3-block w3-panel w3-card">SHOES</a>
-    <a href="/category/Tees" class="w3-bar-item w3-button w3-block w3-panel w3-card">TEES</a>
-    <a href="/category/Boards" class="w3-bar-item w3-button w3-block w3-panel w3-card">BOARDS</a>
+    <a href="/category/Shoes" class="w3-bar-item w3-button w3-block w3-panel w3-card" style="height:50p; padding:13px;">SHOES</a>
+    <a href="/category/Tees" class="w3-bar-item w3-button w3-block w3-panel w3-card"style="height:50p; padding:13px;">TEES</a>
+    <a href="/category/Boards" class="w3-bar-item w3-button w3-block w3-panel w3-card"style="height:50p; padding:13px;">BOARDS</a>
   </div>
   
   
   
   
   
-  <div class="w3-container w3-center w3-cell-bottom" style="float: bottom;"> 
+  <div class="w3-container w3-center w3-cell-bottom" style="position: absolute; bottom: 0;" > 
     <% if session[:login] == 1 %>
       <%= link_to 'Admin Logout', logout_path, :class =>"w3-bar-item w3-button w3-mobile"%>
     <% else %>

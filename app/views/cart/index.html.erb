@@ -1,8 +1,7 @@
 <p id="notice"><%= notice %></p>
 <% if @cart.empty? %>
-    <h1> Your cart is empty</h1>
+    <h1 class="w3-center"> Your cart is empty :(</h1>
 <%end%>
-<h1>Coming from cart/index.html.erb</h1>
 <div class="w3-container">
     <table class="w3-table-all w3-card-4 w3-hoverable w3-border">
         <% total = 0 %>
@@ -20,11 +19,11 @@
 
                 <td><%= number_to_currency(product.price, :unit =>"€") %></td>
 
-                <td><a href="/increase/<%= product.id %>">+</a></td>
-
+                <td><a href="/increase/<%= product.id %>"><i class="fa fa-chevron-up" style="font-size:25px"></i></a></td>
+	
                 <td><%= quantity %></td>
 
-                <td><a href="/decrease/<%= product.id %>">-</a></td>
+                <td><a href="/decrease/<%= product.id %>"><i class="fa fa-chevron-down" style="font-size:25px"></i></a></td>
 
                 <td><%= number_to_currency(quantity * product.price, :unit =>"€") %></td>
                 
@@ -34,10 +33,12 @@
             </tr>
         <% end %>
     </table>
-    <table class="w3-table-all w3-card-4 w3-hoverable w3-border">
-            <p style="float:right;">Grand Total: <%= number_to_currency(total, :unit => "€") %></p>
-
+    <% unless @cart.empty? %>
+        <table class="w3-table-all w3-card-4 w3-hoverable w3-border">
+        <p style="float:right;">Grand Total: <%= number_to_currency(total, :unit => "€") %></p>
     </table>
+    <%end%>
+
     <a href="/products" class="w3-third w3-button w3-black w3-round-large">Continue Shopping</a>
     <a href="/checkout" class="w3-third w3-button w3-black w3-round-large">Checkout</a>
     <% if !@cart.empty? %>
