@@ -49,10 +49,10 @@ Rails.application.routes.draw do
   
   get '/upgrade/:id' => 'static_pages#upgrade'
   
-  get '/upgrade/:id' => 'static_pages#downgrade'
+  get '/downgrade/:id' => 'static_pages#downgrade'
   
   get '/allusers', to: 'static_pages#allusers'
 
   root :to => 'site#home'
-  
+
 end

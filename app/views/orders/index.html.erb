@@ -28,4 +28,7 @@
 
 <br>
 
-<%= link_to 'New Order', new_order_path %>
+
+<% if current_user.admin? %>
+  <%= link_to 'Manual Order', new_order_path %>
+<%end%>

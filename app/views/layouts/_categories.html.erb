@@ -1,14 +1,16 @@
 <div class="w3-container">
     <h1 class="w3-center">Categories</h1>
-<br>
+    <br>
     <% @categories.each do |category| %>
-      <div class="w3-quarter w3-border w3-container w3-white w3-card w3-center">
-            <p><%= category.title %></p>
-            <%= link_to (image_tag category.image, :class => "w3-hover-opacity", :style => "width:100%"), category %>
-            <p><%= category.description %></p>
-            <p><a href="/category/<%=category.title%>" class="w3-button w3-black w3-round-large"><%=category.title%></a></p>
+      <div class="w3-third w3-border w3-container w3-white w3-card w3-center">
 
+            <%= link_to (image_tag category.image, :class => "w3-hover-opacity", :style => "width:100%"), category %>
+            <div class="w3-container w3-margin" style="margin:auto;">
+                <p><a href="/category/<%=category.title%>" class="w3-button w3-black w3-round-large">Shop <%=category.title%></a></p>
+                <% if session[:login] == 1 %>
+                    <%= link_to 'Destroy',  category, method: :delete, data: { confirm: 'Are you sure?' }, :class => " w3-button w3-black w3-round-large", :role => "button" %>
+                <%end%>
+            </div>            
         </div>
     <% end %>
-    
 </div>

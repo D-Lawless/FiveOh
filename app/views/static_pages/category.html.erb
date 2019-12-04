@@ -10,7 +10,7 @@
         <div class="w3-quarter w3-border w3-container w3-white">
 
         <h1><%= product.title %></h1>
-        <%= link_to (image_tag product.img_url, :class => "w3-hover-opacity", :style => "width:100%"), product %>
+        <%= link_to (image_tag product.img_url, :class => "w3-hover-opacity", :style => "width:100%; min-height:290px;"), product %>
           <p><%= truncate(product.description, :length => 80) %></p>
           <p>Price <%= number_to_currency(product.price, :unit => "€") %>
           <br>

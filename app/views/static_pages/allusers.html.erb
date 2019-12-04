@@ -1,15 +1,35 @@
-<h1>Heool here are all the users</h1>
-    <div class="mainCont">
-        <h1>All The People...... So Many People....</h1>
-        
-        <% @users.each do |user| %>
-            <div class="producthols">
-                <h1>User Id: <%= user.id %></h1>
-                <h1>email: <%= user.email %></h1>
-                <h1>Admin: <%= user.admin %></h1>
-                <p><a href="/upgrade/<%= user.id %>" class="button">Make Admin</a></p>
-            </div>
-        <% end %>
+<p id="notice"><%= notice %></p>
+
+<h1 class="w3-center">Users</h1>
+<table class="w3-table">
+  <tr>
+    <th>User ID</th>
+    <th>Email</th> 
+    <th></th>
+    <th>  </th>
+  </tr>
+  <% @users.each do |user| %>
+  <tr>
+    <td><%= user.id %></td>
+    <td><%= user.email %></td>
+    
+    
+        <% if user.admin %>
+    <td>Admin</td>
+    <%else%>
+    <td></td>
+    <% end %>
+
+    
+    
+    
+    <% if user.admin %>
+        <td><a href="/downgrade/<%= user.id %>" class="button">Remove Admin</a> </td>
+    <%else%>
+        <td><a href="/upgrade/<%= user.id %>" class="button">Make Admin</a> </td>
+    <% end %>
+  </tr>
+  <% end %>
+  </table>
     
     </div>
-
