@@ -20,7 +20,6 @@ class CartController < ApplicationController
     @orders = Order.last
     @orderitems = Orderitem.where(order_id: Order.last)
     
-    #session[:cart] = nil
   end
   
 

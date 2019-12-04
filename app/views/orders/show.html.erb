@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
-  <% if @order.user.email == @user.email %>
+<% if @order.user.email == @user.email %>
+
   <p>
     <strong>Order date:</strong>
     <%= @order.order_date %>
@@ -61,16 +62,9 @@
    
      <tr></tr>
      </table>
-        
-      
      </div>
-     
-     
-     
-<% else %>
-   
-<h1>You did not place this order</h1>
+     <% else %>
+   <h1>You did not place this order</h1>
 <% end %>
-
 
 

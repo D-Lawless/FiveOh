@@ -32,7 +32,7 @@ class StaticPagesController < ApplicationController
     @overall = 'dgsfgsdgfdf'
     @order.update_attribute(:status , "Paid by User: #{current_user.email}")
     #"Paid by User:#{current_user.id} #{current_user.name} #{current_user.surname}")
-    #session[:cart] = nil
+    session[:cart] = nil
   end
   
   def orderNumber
@@ -57,4 +57,5 @@ class StaticPagesController < ApplicationController
     redirect_to "/"
   end
   
+
 end

@@ -5,23 +5,27 @@ class OrdersController < ApplicationController
   # GET /orders.json
   def index
     @orders = Order.all
-  
+    @user = User.find(current_user.id)
+    @orders = @user.orders.all
   end
 
   # GET /orders/1
   # GET /orders/1.json
   def show
     
-    @orderitems = Orderitem.all
+    @user = User.find(current_user.id)
+    @orders = @user.orders.all
+    
+   
+   # @orderitems = Orderitem.all
+    
     @orderitems = Orderitem.where(order_id: params[:id])
     @order_total = 0
     
     @orderitems.each do |item|
       @order_total += item.price
     end
-    
-    @user = User.find(current_user.id)
-    
+
   end
 
   # GET /orders/new

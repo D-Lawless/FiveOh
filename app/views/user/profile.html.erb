@@ -1,10 +1,11 @@
 <div class="w3-white w3-text-grey w3-card-4" style="min-height:400px;">
-    <div class="w3-container w3-card w3-center"  style="width:400px; margin:auto;">
+    <div class="w3-container w3-center"  style="width:400px; margin:auto;">
         <p><i class="fa fa-user fa-fw w3-margin-right w3-large"></i>Name: <%= current_user.fName %> <%= current_user.sName %></p>
         <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large  "></i>email: <%= current_user.email %></p>
         <p><i class="fa fa-phone fa-fw w3-margin-right w3-large  "></i>Contact: 1224435534</p>
         <p><i class="fa fa-home fa-fw w3-margin-right w3-large  "></i>Address: London, UK</p>
-        <p><%= link_to 'View Orders', orders_path, :class =>"w3-half w3-button w3-black w3-round-large" %></p>
-        <p><%= link_to 'Edit Profile', edit_user_registration_path, :class =>"w3-half w3-button w3-black w3-round-large" %></p>
+        <p><%= link_to 'View Orders', orders_path, :class =>"w3-button w3-black w3-round-large" %></p>
+        <p><%= link_to 'Edit Profile', edit_user_registration_path, :class =>"w3-button w3-black w3-round-large" %></p>
+        <p><%= link_to "My Orders", orders_path,:class =>"w3-button w3-black w3-round-large" %></p>
     </div>
 </div>
